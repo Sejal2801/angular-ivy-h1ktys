@@ -1,0 +1,49 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<a href="">
+  <div class="container m-3 p-3 c1" *ngFor="let data of Data; index as i" [ngClass]="i%2===0?'bg-light':'bg-white'">
+
+    <div class="d-flex justify-content-between">
+      <h1>{{data.jobPost.title}}</h1>
+      <img
+      class=""
+      *ngIf="data.jobPost.companyLogo"
+      src="{{data.jobPost.companyLogo}}"
+      style="max-height: 70px; max-width: 160px; min-height: 70px; min-width: 70px;"
+    />
+    </div>
+    <p>{{data.jobPost.companyName}}</p>
+
+    <div class="d-flex justify-content-center vertical-center">
+
+
+      <span class="material-icons vertical-center">psychology</span>
+      <div *ngFor="let skill of data.jobPost.skills" class="vertical-center">
+        <h2>{{skill.skillName}},</h2>
+      </div>
+    </div>
+    <a>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <h1 *ngIf="jobType"></h1>
+
+
+            <h2 class="vertical-center "><span class="material-icons mr-2">home</span>
+              {{data.jobPost.jobType}}</h2>
+            <h2 class="vertical-center "><span class="material-icons">payments</span> Salary:₹{{data.jobPost.salary}}
+              {{data.jobPost.salaryType}}</h2>
+            <h2 class="vertical-center "><span class="material-icons">location_on</span>
+              Location:{{data.jobPost.location}}</h2>
+            <h2 class="vertical-center "><span class="material-icons">work</span>
+              Experience:{{data.jobPost.experience}} yrs</h2>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
